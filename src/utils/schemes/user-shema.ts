@@ -32,6 +32,12 @@ export const userShema = {
     date_to: yup.string(),
   }),
 
+  reportSearch: yup.object({
+    report_code: yup.string(),
+    date_from: yup.string(),
+    date_to: yup.string(),
+  }),
+
   offersSearch: yup.object({
     search_offer: yup.string(),
     price_from: yup.string(),

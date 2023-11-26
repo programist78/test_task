@@ -27,6 +27,7 @@ export const ROUTES = {
     PAYMENT_DETAILS: '/cabinet/payment/details',
     NOTIFICATIONS: '/cabinet/notifications',
     SECURITY: '/cabinet/security',
+    REPORT: '/cabinet/report',
 
     SELLER: {
       FINANCIAL_BALANCE: '/cabinet/financial-balance',

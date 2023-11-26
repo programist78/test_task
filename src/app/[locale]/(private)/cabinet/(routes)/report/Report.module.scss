@@ -1,0 +1,33 @@
+@import 'constants/constans.scss';
+
+.report {
+
+  &_noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(316);
+  }
+
+  &_tableWrapper {
+    margin-top: toRem(24);
+  }
+}
+
+.reporterInfo {
+  display: flex;
+  align-items: center;
+
+  &_content {
+    margin-left: toRem(8);
+  }
+
+  &_name {
+    color: $dark;
+    margin-bottom: toRem(4);
+  }
+
+  &_email {
+    color: $mainColor;
+  }
+}
