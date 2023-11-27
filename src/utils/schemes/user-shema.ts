@@ -1,4 +1,4 @@
-import { EnumLanguage, EnumPlatforms } from 'types/enums';
+import { EnumLanguage, EnumPlatforms, EnumReportStatus } from 'types/enums';
 import * as yup from 'yup';
 
 export const userShema = {
@@ -36,6 +36,10 @@ export const userShema = {
     report_code: yup.string(),
     date_from: yup.string(),
     date_to: yup.string(),
+  }),
+
+  updateReportStatus: yup.object({
+    status: yup.string().required().oneOf(Object.values(EnumReportStatus)),
   }),
 
   offersSearch: yup.object({

@@ -10,13 +10,186 @@ import { Form, IReportForm } from './Form';
 
 import s from './Report.module.scss';
 
-interface ReportProps {
-  isTwoFactorEnabled?: boolean;
-  reports: IReport[];
-  href: string;
-}
+import { ROUTES } from 'constants/routes';
+import { EnumReportStatus } from 'types/enums';
 
-export const Report: FC<ReportProps> = ({ reports, href }) => {
+import ReporterImg from 'assets/images/reporter/Reporter-1.png';
+
+const reports: IReport[] = [
+  {
+    id: '2',
+    code: '58862',
+    reporter: {
+      id: '1',
+      userName: 'Be Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.ANSWERED,
+  },
+  {
+    id: '1',
+    code: '58862',
+    reporter: {
+      id: '2',
+      userName: 'Bl Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.ANSWERED,
+  },
+  {
+    id: '3',
+    code: '58862',
+    reporter: {
+      id: '3',
+      userName: 'Ac Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.CLOSED,
+  },
+  {
+    id: '4',
+    code: '58862',
+    reporter: {
+      id: '4',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '5',
+    code: '58862',
+    reporter: {
+      id: '5',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '6',
+    code: '58862',
+    reporter: {
+      id: '6',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '7',
+    code: '58862',
+    reporter: {
+      id: '7',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '8',
+    code: '58862',
+    reporter: {
+      id: '8',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '9',
+    code: '58862',
+    reporter: {
+      id: '9',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '10',
+    code: '58862',
+    reporter: {
+      id: '10',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '11',
+    code: '58862',
+    reporter: {
+      id: '11',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '12',
+    code: '58862',
+    reporter: {
+      id: '12',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+  {
+    id: '13',
+    code: '58862',
+    reporter: {
+      id: '13',
+      userName: 'Cody Fisher',
+      email: 'michael.mitc@example.com',
+      avatarURL: ReporterImg.src,
+    },
+    createdAt: '05/06/20, 11:30',
+    text: 'Penny Drop Report',
+    status: EnumReportStatus.WAITING,
+  },
+];
+
+const href = ROUTES.PRIVATE.REPORT_DETAILS;
+
+export const Report: FC = () => {
   const [filteredReports, setFilteredReports] = useState(reports);
   const t = useTranslations('ProfilePage.Report');
   const tableTranslate = useTranslations('ProfilePage.Report.Table');

@@ -2,7 +2,7 @@ import { CellProps, Column } from 'react-table';
 
 import { IReport } from 'types/reportTypes';
 
-import { ReporterInfo } from 'app/[locale]/(private)/cabinet/(routes)/report/ReporterInfo';
+import { UserInfo } from 'components/common/report/UserInfo';
 import { StatusBlock } from 'components/common/StatusBlock';
 import { TableButton } from 'components/common/Table/button';
 
@@ -24,7 +24,7 @@ export const getReportColumns = ({ href }: IGetReportColumns) => {
         const { reporter } = row.original;
 
         return (
-          <ReporterInfo
+          <UserInfo
             avatarURL={reporter.avatarURL}
             email={reporter.email}
             userName={reporter.userName}

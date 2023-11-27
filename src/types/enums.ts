@@ -41,7 +41,7 @@ export enum EnumPaymentStatus {
 }
 
 export enum EnumReportStatus {
-  ANSWERED = 'ANSWERED',
-  WAITING = 'WAITING',
-  CLOSED = 'CLOSED',
+  ANSWERED = 'Answered',
+  WAITING = 'Waiting',
+  CLOSED = 'Closed',
 }

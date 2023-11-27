@@ -759,6 +759,19 @@
         "status": "Status",
         "offers": "Offers",
         "no_results": "No results"
+      },
+      "Details": {
+        "title": "Report Details",
+        "reporter": "Reporter",
+        "ban_reporter_btn": "Ban Reporter",
+        "suspect": "Suspect",
+        "ban_suspect_btn": "Ban Suspect",
+        "time_date": "Report Date & Time",
+        "section": "Section",
+        "last_update": "Last update",
+        "description": "Description",
+        "attachment": "Attachment",
+        "update_status_btn": "Update Status"
       }
     },
     "Notifications": {
