@@ -15,6 +15,7 @@ import { EnumReportStatus } from 'types/enums';
 
 import ReporterImg from 'assets/images/reporter/Reporter-1.png';
 
+//! fetch data from server 
 const reports: IReport[] = [
   {
     id: '2',

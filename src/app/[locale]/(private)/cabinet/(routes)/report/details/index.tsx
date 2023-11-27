@@ -14,6 +14,7 @@ import { MinorButton } from 'ui/components/Button';
 import { UpdateStatusForm } from './UpdateStatusForm';
 import { UserCard } from 'components/common/report/UserCard';
 
+//! fetch data from server 
 const data: IReportDetails = {
   reporter: {
     id: '1',
