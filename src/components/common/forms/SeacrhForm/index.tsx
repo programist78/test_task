@@ -4,7 +4,8 @@ import { FilterIcon } from 'components/icons/FilterIcon';
 import { SeacrhIcon } from 'components/icons/social/SeacrhIcon';
 import { DropdownField } from 'components/common/DropdownField';
 import { MinorButton, SecondaryButton } from 'ui/components/Button';
-
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 import s from './SeachForm.module.scss';
 
 interface IItem {

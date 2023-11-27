@@ -582,6 +582,10 @@
   },
   "ProfilePage": {
     "Sidebar": {
+      "sellers": "Sellers",
+      "dashboard": "Dashboard",
+      "buyers": "Buyers",
+      "sections": "Sections",
       "level": "Lv",
       "confident_lvl": "Confident Lv:",
       "profile": "Profile",
