@@ -95,6 +95,9 @@ export const ProfileSidebar: FC<ProfileSidebarProps> = ({ config, user }) => {
               return (
                 <li className={s.sidebar_item} key={index}>
                   <Link
+                    style={{
+                      color: item.title === 'logout' ? '#DD0055' : undefined,
+                    }}
                     className={`${s.sidebar_button} ${
                       isActive ? s.active : ''
                     }`.trim()}

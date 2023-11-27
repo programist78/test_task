@@ -1,13 +1,10 @@
 import { ReactNode } from 'react';
-import { EnumRoles } from 'types/enums';
-
 import { Container } from 'ui/components/Container';
 import { Header } from 'components/header';
 import { ProfileSidebar } from './components/ProfileSidebar';
-
 import { buyerConfig } from './sidebar-configs/buyer-config';
-
 import s from './Cabinet.module.scss';
+import { user } from 'constants/mockData';
 
 export interface ISidebarConfig {
   items: {
@@ -23,7 +20,6 @@ interface PrivateLayoutProps {
 }
 
 export default async function PrivateLayout({ children }: PrivateLayoutProps) {
-
   let currentConfig: ISidebarConfig = buyerConfig;
 
   return (
@@ -32,9 +28,7 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
       <main className={s.profile}>
         <Container>
           <div className={s.profile_wrapper}>
-            <ProfileSidebar
-              config={currentConfig}
-            />
+            <ProfileSidebar config={currentConfig} user={user} />
             {children}
           </div>
         </Container>

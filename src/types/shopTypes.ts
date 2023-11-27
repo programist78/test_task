@@ -60,6 +60,7 @@ export interface ILanguages {
 }
 
 export interface IUserDetail {
+  email: string;
   avatarURL: string;
   userName: string;
 }
@@ -107,6 +108,7 @@ export interface IProductForCategory {
 }
 
 export interface IPurchaseProduct {
+  bankCard?: string | number;
   acceptedAt: string;
   boughtBy: IUserDetail;
   id: string;

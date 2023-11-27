@@ -34,8 +34,8 @@ export enum EnumRatingColors {
 }
 
 export enum EnumPaymentStatus {
-  SUCCEEDED = 'SUCCEEDED',
-  PENDING = 'PENDING',
-  FAILED = 'FAILED',
-  CANCELED = 'CANCELED',
+  SUCCEEDED = 'Success',
+  PENDING = 'Pending',
+  FAILED = 'Fail',
+  CANCELED = 'Canceled',
 }

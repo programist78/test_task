@@ -24,7 +24,7 @@ export const getPaymentColumns = ({ href }: IGetPaymentColumns) => {
     },
     {
       Header: 'time_date',
-      accessor: (row) => row.createdAt || '!!! Need Date',
+      accessor: (row) => row.acceptedAt || '!!! Need Date',
       // sortType: 'datetime'
     },
     {

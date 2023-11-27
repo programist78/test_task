@@ -7,21 +7,26 @@ import { useAuth } from 'utils/hooks/useAuth';
 import { ROUTES } from 'constants/routes';
 
 import { DropDown } from 'ui/components/DropDown';
-import { TransparentAchiveIcon } from 'components/icons/AchiveIcon';
+import { AchiveIcon, TransparentAchiveIcon } from 'components/icons/AchiveIcon';
 import { MessageIcon } from 'components/icons/MessageIcon';
-import { CartIcon } from 'components/icons/CartIcon';
+
 import { MoonIcon } from 'components/icons/MoonIcon';
-import { FlagIcon } from 'components/icons/FlagIcon';
-import { ExitIcon } from 'components/icons/ExitIcon';
+
 import { ThemeSwitcher } from 'components/common/ThemeSwitcher';
-import { ProfileIcon } from 'components/icons/ProfileIcon';
+
 import { UserAvatar } from 'components/common/UserAvatar';
 
 import s from '../../Header.module.scss';
 import { KeyIcon } from 'components/icons/KeyIcon';
+import { PaymentIcon } from 'components/icons/PaymentIcon';
+import { ListIcon } from 'components/icons/ListIcon';
+import { StoreIcon } from 'components/icons/StoreIcon';
+import { CartIcon } from 'components/icons/CartIcon';
+import { ExitIcon } from 'components/icons/ExitIcon';
 
 export const HeaderAuthorizedAvatar: FC = () => {
   const t = useTranslations('Header.Dropdowns');
+
   const { logout } = useAuth();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -34,10 +39,42 @@ export const HeaderAuthorizedAvatar: FC = () => {
     title: t('account'),
     list: [
       {
-        title: 'security',
+        icon: <MessageIcon />,
+        title: 'Messages',
+        href: ROUTES.PRIVATE.MESSAGES,
+      },
+      {
+        icon: <ListIcon />,
+        title: 'Sections',
+        href: ROUTES.PUBLIC.CATEGORIES,
+      },
+
+      {
+        icon: <StoreIcon />,
+        title: 'Sellers',
+        href: ROUTES.PUBLIC.CATEGORIES,
+      },
+      {
+        icon: <CartIcon />,
+        title: 'Buyers',
+        href: ROUTES.PUBLIC.CATEGORIES,
+      },
+      {
+        icon: <PaymentIcon />,
+        title: 'Payment',
+        href: ROUTES.PRIVATE.PAYMENT,
+      },
+
+      {
+        icon: <AchiveIcon />,
+        title: 'Achievement',
+        href: ROUTES.PRIVATE.ACHIEVEMENT,
+      },
+      {
         icon: <KeyIcon />,
+        title: 'Security',
         href: ROUTES.PRIVATE.SECURITY,
-      }
+      },
     ],
   };
 

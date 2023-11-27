@@ -4,6 +4,59 @@ import { MinorLinkButton } from 'ui/components/Button';
 import { ScrollBlock } from '../ScrollBlock';
 
 import s from './OrderDetail.module.scss';
+import { ArrowRight } from 'components/icons/ArrowIcons';
+
+export interface IOrderPersonsInfo {
+  email: string;
+  fullName: string;
+  type: string;
+  imgHref?: string;
+}
+
+export interface IOrderPersons {
+  persons: (IOrderPersonsInfo | null)[];
+}
+
+export const OrderPersonsInfo: FC<IOrderPersons> = ({ persons }) => {
+  return (
+    <div className={s.persons}>
+      {persons.map((person) => (
+        <div className={s.person}>
+          <p className={s.personType}>{person?.type}</p>
+          <div>
+            <img
+              src={
+                person?.imgHref
+                  ? person?.imgHref
+                  : `
+      https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzPb_pSj-ir-9eB6mi0lVJdQP1KKHiB8fRBS1CbmOXGd9Z1FEGMJHbEKhahwhWLGSaEXY&usqp=CAU`
+              }
+              alt=""
+            />
+            <div>
+              <p className={s.personName}>{person?.fullName}</p>
+              <p>{person?.email}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+
+      {/* <div className={s.person}>
+        <p className={s.personType}>Seller</p>
+        <div>
+          <img
+            src="https://sm.ign.com/ign_nordic/cover/a/avatar-gen/avatar-generations_prsz.jpg"
+            alt=""
+          />
+          <div>
+            <p className={s.personName}>Anari Sakura</p>
+            <p>rwewewr@gmail.com</p>
+          </div>
+        </div>
+      </div> */}
+    </div>
+  );
+};
 
 export interface IOrderDetailType {
   title: string;
@@ -31,6 +84,7 @@ export const OrderDetailTypes: FC<OrderDetailTypesProps> = ({
               {type.isLink ? (
                 <MinorLinkButton className={s.type_name} href={type.href || ''}>
                   {type.name}
+                  <ArrowRight />
                 </MinorLinkButton>
               ) : (
                 <div className={s.type_name}>

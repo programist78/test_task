@@ -568,6 +568,10 @@
   },
   "ProfilePage": {
     "Sidebar": {
+      "sellers": "Продавці",
+      "dashboard": "Панель",
+      "buyers": "Покупці",
+      "sections": "Секції",
       "level": "Рівень",
       "confident_lvl": "Рівень впевненості:",
       "profile": "Профіль",
