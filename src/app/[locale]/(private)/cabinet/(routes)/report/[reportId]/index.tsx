@@ -14,7 +14,7 @@ import { MinorButton } from 'ui/components/Button';
 import { UpdateStatusForm } from './UpdateStatusForm';
 import { UserCard } from 'components/common/report/UserCard';
 
-//! fetch data from server 
+//! fetch data from server
 const data: IReportDetails = {
   reporter: {
     id: '1',
@@ -42,6 +42,25 @@ const data: IReportDetails = {
 export const ReportDetails: FC = () => {
   const t = useTranslations('ProfilePage.Report.Details');
 
+  const infoItems = [
+    {
+      label: t('time_date'),
+      text: data.createdAt,
+    },
+    {
+      label: t('section'),
+      text: data.section,
+    },
+    {
+      label: t('last_update'),
+      text: data.updatedAt,
+    },
+    {
+      label: t('description'),
+      text: data.description,
+    },
+  ];
+
   return (
     <Section>
       <Section.FlexHeader>
@@ -54,22 +73,12 @@ export const ReportDetails: FC = () => {
           <UserCard user={data.suspect} type="suspect" />
         </div>
         <div className={s.info}>
-          <div className={s.info_item}>
-            <div className={s.label}>{t('time_date')}</div>
-            <div className={s.text}>{data.createdAt}</div>
-          </div>
-          <div className={s.info_item}>
-            <div className={s.label}>{t('section')}</div>
-            <div className={s.text}>{data.section}</div>
-          </div>
-          <div className={s.info_item}>
-            <div className={s.label}>{t('last_update')}</div>
-            <div className={s.text}>{data.updatedAt}</div>
-          </div>
-          <div className={s.info_item}>
-            <div className={s.label}>{t('description')}</div>
-            <div className={s.text}>{data.description}</div>
-          </div>
+          {infoItems.map((item) => (
+            <div className={s.info_item}>
+              <div className={s.label}>{item.label}</div>
+              <div className={s.text}>{item.text}</div>
+            </div>
+          ))}
           <div className={s.info_item}>
             <div className={s.label}>{t('attachment')}</div>
             <MinorButton className={s.attachment_btn}>

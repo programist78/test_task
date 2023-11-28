@@ -10,12 +10,12 @@ import { Form, IReportForm } from './Form';
 
 import s from './Report.module.scss';
 
-import { ROUTES } from 'constants/routes';
 import { EnumReportStatus } from 'types/enums';
 
 import ReporterImg from 'assets/images/reporter/Reporter-1.png';
+import { usePathname } from 'next/navigation';
 
-//! fetch data from server 
+//! fetch data from server
 const reports: IReport[] = [
   {
     id: '2',
@@ -188,9 +188,8 @@ const reports: IReport[] = [
   },
 ];
 
-const href = ROUTES.PRIVATE.REPORT_DETAILS;
-
 export const Report: FC = () => {
+  const pathname = usePathname();
   const [filteredReports, setFilteredReports] = useState(reports);
   const t = useTranslations('ProfilePage.Report');
   const tableTranslate = useTranslations('ProfilePage.Report.Table');
@@ -218,7 +217,7 @@ export const Report: FC = () => {
       {filteredReports.length ? (
         <Table
           data={filteredReports}
-          columns={getReportColumns({ href })}
+          columns={getReportColumns({ href: pathname })}
           translateFn={tableTranslate}
           wrapperClassName={s.report_tableWrapper}
         />

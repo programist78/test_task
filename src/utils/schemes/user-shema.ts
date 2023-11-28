@@ -42,6 +42,10 @@ export const userShema = {
     status: yup.string().required().oneOf(Object.values(EnumReportStatus)),
   }),
 
+  sendMessage: yup.object({
+    content: yup.string().required(),
+  }),
+
   offersSearch: yup.object({
     search_offer: yup.string(),
     price_from: yup.string(),

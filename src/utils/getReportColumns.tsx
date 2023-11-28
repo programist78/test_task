@@ -63,7 +63,8 @@ export const getReportColumns = ({ href }: IGetReportColumns) => {
       Cell: ({ row }: CellProps<IReport>) => {
         const originalItem = row.original;
 
-        return <TableButton href={`${href}?reportId=${originalItem.id}`} />;
+        // return <TableButton href={`${href}?reportId=${originalItem.id}`} />;
+        return <TableButton href={`${href}/${originalItem.id}`} />;
       },
     },
   ];

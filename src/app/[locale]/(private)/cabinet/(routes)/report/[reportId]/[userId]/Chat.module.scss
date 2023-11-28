@@ -1,0 +1,171 @@
+@import 'constants/constans.scss';
+
+.header {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &_control {
+    @include flexRow(center, flex-start);
+
+    & :not(:last-child) {
+      margin-right: toRem(24);
+    }
+  }
+
+  .close_btn {
+    [data-theme='dark'] & {
+      border: toRem(1) solid rgba(#fff, 0.08);
+      background: $grey_misty_36;
+    }
+  }
+}
+
+.chat {
+  border-radius: toRem(24);
+  background: $grey;
+  border: toRem(1) solid rgba(#fff, 0.08);
+
+  [data-theme='dark'] & {
+    background: rgba(#393c4d, 0.24);
+  }
+
+  &_header {
+    width: 100%;
+    padding: toRem(16) toRem(24);
+    @include flexRow(center, space-between);
+
+    .user {
+      @include flexRow(center, flex-start);
+
+      &_info {
+        margin-left: toRem(24);
+      }
+
+      &_name {
+        font-size: toRem(24);
+        font-weight: 600;
+        color: $dark;
+        margin-bottom: toRem(8);
+      }
+
+      &_status {
+        font-size: toRem(14);
+        color: $green;
+      }
+    }
+
+    .flag_btn {
+      padding: 0;
+      min-width: toRem(40);
+      background: transparent;
+      color: $mainColor;
+
+      [data-theme='dark'] & {
+        color: $dark
+      }
+    }
+  }
+
+  &_content {
+    margin: 0 !important;
+    padding: toRem(24) 0;
+    background: $white;
+  }
+}
+
+.row {
+  &_left,
+  &_right {
+    width: 100%;
+    padding: 0 toRem(24) toRem(24) toRem(24);
+  }
+
+  &_left {
+    @include flexRow(center, flex-start);
+  }
+
+  &_right {
+    @include flexRow(center, flex-end);
+  }
+}
+
+.message {
+  padding: toRem(16);
+  width: 100%;
+  max-width: toRem(310);
+
+  .text {
+    font-size: toRem(16);
+    margin-bottom: toRem(8);
+  }
+
+  .time {
+    font-size: toRem(14);
+  }
+
+  &_left {
+    @include flexColumn(flex-end, flex-start);
+    background: $white;
+    border-radius: 0 toRem(24) toRem(24) toRem(24);
+    border: toRem(1) solid $grey_pale;
+
+    [data-theme='dark'] & {
+      background: $grey_misty_36;
+    }
+
+    .text {
+      color: $dark;
+    }
+
+    .time {
+      color: $mainColor;
+    }
+  }
+
+  &_right {
+    @include flexColumn(flex-start, flex-start);
+    @include background-accent();
+    border-radius: toRem(24) 0 toRem(24) toRem(24);
+    color: $white;
+
+    .text {
+      font-size: toRem(16);
+      color: $white;
+      margin-bottom: toRem(8);
+
+      [data-theme='dark'] & {
+        color: $dark;
+      }
+    }
+
+    .time {
+      color: $white;
+
+      [data-theme='dark'] & {
+        color: $dark;
+      }
+    }
+  }
+}
+
+.form {
+  @include flexRow(flex-end, space-between);
+  padding: toRem(16) toRem(24);
+  width: 100%;
+
+  .field {
+    width: 100%;
+  }
+
+  .send_btn {
+    padding: 0;
+    min-width: toRem(115);
+    margin-left: toRem(16);
+
+    [data-theme='dark'] & {
+      background: $grey_misty_36;
+    }
+  }
+}

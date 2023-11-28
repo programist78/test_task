@@ -772,6 +772,13 @@
         "description": "Description",
         "attachment": "Attachment",
         "update_status_btn": "Update Status"
+      },
+      "Chat": {
+        "close_btn": "Close report",
+        "send_btn": "Send",
+        "online": "Online",
+        "offline": "Offline",
+        "message_placeholder": "Write your message"
       }
     },
     "Notifications": {
