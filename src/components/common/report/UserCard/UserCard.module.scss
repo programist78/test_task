@@ -1,0 +1,50 @@
+@import 'constants/constans.scss';
+
+.wrapper {
+  width: 100%;
+  padding: toRem(16);
+  border-radius: toRem(16);
+  background: $grey;
+
+  [data-theme='dark'] & {
+    background-color: rgba(#393c4d, 0.24);
+  }
+
+  .title {
+    font-size: toRem(14);
+    margin-bottom: toRem(12);
+    color: $mainColor;
+  }
+
+  .content {
+    @include flexRow(center, space-between);
+  }
+
+  .ban_btn {
+    background: $white;
+    color: $red;
+    border: toRem(1) solid #FFEEEE;
+
+    [data-theme="dark"] & {
+      background: $grey;
+      color: $dark;
+      border: toRem(1) solid $grey_pale;
+      backdrop-filter: $bg_blur;
+    }
+  }
+
+  .chat_btn {
+    background: $white;
+    color: $dark;
+    border: toRem(1) solid #DFDDDE;
+    padding: 0;
+    min-width: 48px;
+
+    [data-theme="dark"] & {
+      background: $grey;
+      color: $dark;
+      border: toRem(1) solid $grey_pale;
+      backdrop-filter: $bg_blur;
+    }
+  }
+}

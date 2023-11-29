@@ -37,7 +37,8 @@ export const HeaderAuthorizedAvatar: FC = () => {
         title: 'security',
         icon: <KeyIcon />,
         href: ROUTES.PRIVATE.SECURITY,
-      }
+      },
+      { icon: <FlagIcon />, title: 'report', href: ROUTES.PRIVATE.REPORT },
     ],
   };
 

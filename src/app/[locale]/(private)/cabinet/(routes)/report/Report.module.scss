@@ -1,0 +1,14 @@
+@import 'constants/constans.scss';
+
+.report {
+  &_noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(316);
+  }
+
+  &_tableWrapper {
+    margin-top: toRem(24);
+  }
+}

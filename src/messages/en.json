@@ -591,6 +591,7 @@
       "payment": "Payment",
       "notifications": "Notifications",
       "security": "Security",
+      "report": "Report",
       "logout": "Logout",
       "Seller": {
         "financial_balance": "Financial & Balance",
@@ -741,6 +742,43 @@
         "time_date": "Time & Date",
         "product": "Product",
         "to_product": "Running"
+      }
+    },
+    "Report": {
+      "title": "Report",
+      "search_label": "Search",
+      "search_placeholder": "Search report code",
+      "date_label": "Report date",
+      "date_from": "From",
+      "date_to": "To",
+      "Table": {
+        "report_code": "Code",
+        "reporter": "Reporter",
+        "text": "Text",
+        "time_date": "Reporte Date",
+        "status": "Status",
+        "offers": "Offers",
+        "no_results": "No results"
+      },
+      "Details": {
+        "title": "Report Details",
+        "reporter": "Reporter",
+        "ban_reporter_btn": "Ban Reporter",
+        "suspect": "Suspect",
+        "ban_suspect_btn": "Ban Suspect",
+        "time_date": "Report Date & Time",
+        "section": "Section",
+        "last_update": "Last update",
+        "description": "Description",
+        "attachment": "Attachment",
+        "update_status_btn": "Update Status"
+      },
+      "Chat": {
+        "close_btn": "Close report",
+        "send_btn": "Send",
+        "online": "Online",
+        "offline": "Offline",
+        "message_placeholder": "Write your message"
       }
     },
     "Notifications": {

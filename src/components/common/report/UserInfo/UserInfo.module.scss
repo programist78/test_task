@@ -1,0 +1,19 @@
+@import 'constants/constans.scss';
+
+.user {
+  display: flex;
+  align-items: center;
+
+  &_content {
+    margin-left: toRem(8);
+  }
+
+  &_name {
+    color: $dark;
+    margin-bottom: toRem(4);
+  }
+
+  &_email {
+    color: $mainColor;
+  }
+}

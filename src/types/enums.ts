@@ -39,3 +39,9 @@ export enum EnumPaymentStatus {
   FAILED = 'FAILED',
   CANCELED = 'CANCELED',
 }
+
+export enum EnumReportStatus {
+  ANSWERED = 'Answered',
+  WAITING = 'Waiting',
+  CLOSED = 'Closed',
+}
