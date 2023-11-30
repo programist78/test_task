@@ -7,9 +7,9 @@ import { useTranslations } from 'next-intl';
 import { userShema } from 'utils/schemes/user-shema';
 
 import { Button } from 'ui/components/Button';
-import { FieldBox } from 'components/common/fieldBox';
 
 import s from './Security.module.scss';
+import { FieldBox } from 'components/common/FieldBox';
 
 interface IChangePassword {
   current_password: string;

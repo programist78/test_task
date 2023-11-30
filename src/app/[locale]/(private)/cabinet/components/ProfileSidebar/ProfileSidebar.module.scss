@@ -1,230 +1,307 @@
-@import "constants/constans.scss";
+@import 'constants/constans.scss';
 
 .sidebar {
-    position: sticky;
-    top: toRem(120);
-    background-color: $transparent_color;
-    border: toRem(1) solid $grey_pale;
-    border-radius: toRem(24);
-    backdrop-filter: $bg_blur;
-    overflow: hidden;
+  position: sticky;
+  top: toRem(120);
+  background-color: $transparent_color;
+  border: toRem(1) solid $grey_pale;
+  border-radius: toRem(24);
+  backdrop-filter: $bg_blur;
+  overflow: hidden;
 
-    &_content {
-        overflow-y: auto;
+  &::before {
+    content: '';
+    position: absolute;
 
-        @media (max-height: em(999)) {
-            max-height: toRem(564);
-        }
-        @media (max-height: em(899)) {
-            max-height: toRem(464);
-        }
-        @media (max-height: em(799)) {
-            max-height: toRem(364);
-        }
-        @media (max-height: em(699)) {
-            max-height: toRem(264);
-        }
+    [data-theme='dark'] & {
+      @include border-gradient(
+        toRem(24),
+        toRem(1),
+        160deg,
+        rgba(255, 255, 255, 0.38),
+        #23232a
+      );
     }
+  }
 
-    [data-theme="dark"] & {
+  &_content {
+    overflow-y: auto;
+
+    @media (max-height: em(999)) {
+      max-height: toRem(564);
+    }
+    @media (max-height: em(899)) {
+      max-height: toRem(464);
+    }
+    @media (max-height: em(799)) {
+      max-height: toRem(364);
+    }
+    @media (max-height: em(699)) {
+      max-height: toRem(264);
+    }
+  }
+
+  [data-theme='dark'] & {
+    background-color: $grey;
+  }
+
+  &_top {
+    padding: toRem(24);
+  }
+
+  .user {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+
+    background-color: $grey;
+    [data-theme='dark'] & {
+      background-color: $grey;
+    }
+    border-radius: toRem(20) $radius $radius toRem(20);
+
+    &_image {
+      position: relative;
+      @include flexRow(center, center);
+      width: toRem(74);
+      height: toRem(1.15 * 74);
+      z-index: 3;
+
+      &_border {
+        @include hexagon-clip-path();
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: toRem(74);
+        height: toRem(1.15 * 74);
+        background: #dfddde;
+        z-index: -3;
+      }
+
+      &_backdrop {
+        @include hexagon-clip-path();
+        position: relative;
+        margin: toRem(1);
+        width: toRem(72);
+        height: toRem(1.15 * 72);
+
         background-color: $grey;
-    }
+        z-index: 1;
 
-    &_top {
-        padding: toRem(24);
-    }
-
-    .user {
-        display: grid;
-        grid-template-columns: max-content 1fr;
-        align-items: center;
-
-        background-color: $grey;
-        border-radius: toRem(20) $radius $radius toRem(20);
-
-        &_image {
-            position: relative;
-            @include flexRow(center, center);
-            width: toRem(76);
-            height: toRem(76);
-
-            & img {
-                border-radius: toRem(20);
-            }
-
-            & > span {
-                @include flexRow(center, center);
-                width: 100%;
-                height: 100%;
-                text-align: center;
-                font-size: toRem(36);
-                text-transform: uppercase;
-                border-radius: toRem(20);
-                background-color: $grey_pale;
-                color: $dark;
-            }
+        [data-theme='dark'] & {
+          background: linear-gradient(
+            180deg,
+            #0a131f 0%,
+            #0a131f 70%,
+            $transparent_color 100%
+          );
         }
+      }
 
-        &_level {
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%) translateY(50%);
+      & img {
+        @include hexagon-clip-path();
+        margin: toRem(3);
+        border-radius: toRem(20);
+        width: toRem(66);
+        height: toRem(1.15 * 66);
+        object-fit: cover;
+        object-position: center;
+      }
 
-            padding: 0 toRem(8);
-            background-color: #ecf2fe;
-            border-radius: toRem(30);
-            box-shadow: $box_shadow;
-            border: toRem(1) solid #fff;
-
-            font-size: toRem(14);
-            line-height: 142.857143%; /* 20/14 */
-
-            [data-theme="dark"] & {
-                & span {
-                    @include color-accent();
-                }
-            }
-        }
-
-        &_info {
-            padding: toRem(12);
-        }
-
-        &_name {
-            display: block;
-            font-weight: 700;
-            color: $dark;
-            text-transform: capitalize;
-        }
-
-        &_email {
-            display: inline-block;
-            margin-top: toRem(4);
-            font-size: toRem(14);
-            line-height: 142.857143%; /* 20/14 */
-        }
-
-        &_confident {
-            position: relative;
-            @include flexRow(center);
-            width: 100%;
-            height: toRem(24);
-            padding: toRem(4) toRem(8);
-            border: toRem(1) solid #fff;
-            border-radius: toRem(40);
-            margin-top: toRem(8);
-            overflow: hidden;
-
-            [data-theme="dark"] & {
-                background-color: $grey_lavander;
-                border-color: $grey_lavander;
-            }
-
-            &_value {
-                position: relative;
-                font-size: toRem(10);
-                line-height: 140%; /* 14/10 */
-                font-weight: 600;
-                color: #fff;
-                z-index: 1;
-            }
-
-            &_line {
-                position: absolute;
-                left: 0;
-                top: 0;
-                height: 100%;
-                background-color: $green;
-                border-radius: 0 toRem(40) toRem(40) 0;
-            }
-        }
-    }
-
-    &_body {
-        padding: toRem(12) toRem(24) toRem(16) toRem(24);
-    }
-
-    &_item {
-        &:not(:first-child) {
-            padding-top: toRem(12);
-        }
-    }
-
-    &_button {
-        @include flexRow(center, flex-start);
-        column-gap: toRem(12);
+      & > span {
+        @include flexRow(center, center);
+        @include hexagon-clip-path();
         width: 100%;
-
-        border-radius: $radius;
-        border: toRem(1) solid transparent;
-        padding: toRem(12) toRem(24);
+        height: 100%;
+        text-align: center;
+        font-size: toRem(36);
+        text-transform: uppercase;
+        border-radius: toRem(20);
+        background-color: $grey_pale;
         color: $dark;
+        z-index: 2;
+      }
+    }
 
-        transition: all $transition;
+    &_level {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(50%);
+      display: none;
 
-        [data-theme="dark"] & {
-            color: $mainColor;
-        }
+      padding: 0 toRem(8);
+      background-color: #ecf2fe;
+      border-radius: toRem(30);
+      box-shadow: $box_shadow;
+      border: toRem(1) solid #fff;
 
-        @media (any-hover: hover) {
-            &:hover {
-                color: $accent;
+      font-size: toRem(14);
+      line-height: 142.857143%; /* 20/14 */
 
-                [data-theme="dark"] & {
-                    color: $dark;
-                }
-            }
-        }
-
+      [data-theme='dark'] & {
+        display: block;
         & span {
-            font-size: toRem(14);
-            line-height: 142.857143%; /* 20/14 */
-            font-weight: 600;
+          @include color-accent();
         }
-
-        &.active {
-            color: $accent;
-            background-color: $blue_pale;
-            pointer-events: none;
-
-            [data-theme="dark"] & {
-                color: $dark;
-                background-color: $grey;
-                border-color: $grey_pale;
-            }
-        }
-
-        &.logout {
-            color: $red;
-
-            [data-theme="dark"] & {
-                color: $mainColor;
-            }
-
-            @media (any-hover: hover) {
-                &:hover {
-                    color: #ee2270;
-
-                    [data-theme="dark"] & {
-                        color: $dark;
-                    }
-                }
-            }
-        }
+      }
     }
 
-    &_footer {
-        padding: toRem(24);
-        border-top: toRem(1) solid $grey_pale;
-
-        & > a {
-            min-width: auto;
-            width: 100%;
-        }
-
-        [data-theme="dark"] & {
-            background-color: rgb($grey_misty, 0.24);
-        }
+    &_info {
+      padding: toRem(12);
     }
+
+    &_name {
+      display: block;
+      font-weight: 700;
+      color: $dark;
+      text-transform: capitalize;
+    }
+
+    &_email {
+      display: inline-block;
+      margin-top: toRem(4);
+      font-size: toRem(14);
+      line-height: 142.857143%; /* 20/14 */
+    }
+
+    &_confident {
+      position: relative;
+      @include flexRow(center);
+      width: 100%;
+      height: toRem(24);
+      padding: toRem(4) toRem(8);
+      border: toRem(1) solid #fff;
+      border-radius: toRem(40);
+      margin-top: toRem(8);
+      overflow: hidden;
+
+      [data-theme='dark'] & {
+        background-color: $grey_lavander;
+        border-color: $grey_lavander;
+      }
+
+      &_value {
+        position: relative;
+        font-size: toRem(10);
+        line-height: 140%; /* 14/10 */
+        font-weight: 600;
+        color: #fff;
+        z-index: 1;
+      }
+
+      &_line {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        background-color: $green;
+        border-radius: 0 toRem(40) toRem(40) 0;
+      }
+    }
+  }
+
+  &_body {
+    padding: toRem(12) toRem(24) toRem(16) toRem(24);
+  }
+
+  &_item {
+    &:not(:first-child) {
+      padding-top: toRem(12);
+    }
+  }
+
+  &_button {
+    @include flexRow(center, flex-start);
+    position: relative;
+    column-gap: toRem(12);
+    width: 100%;
+
+    border-radius: $radius;
+    border: toRem(1) solid transparent;
+    padding: toRem(12) toRem(24);
+    color: $dark;
+
+    transition: all $transition;
+
+    [data-theme='dark'] & {
+      color: $mainColor;
+    }
+
+    @media (any-hover: hover) {
+      &:hover {
+        color: $accent;
+
+        [data-theme='dark'] & {
+          color: $dark;
+        }
+      }
+    }
+
+    & span {
+      font-size: toRem(14);
+      line-height: 142.857143%; /* 20/14 */
+      font-weight: 600;
+    }
+
+    &.active {
+      color: $accent;
+      background-color: $blue_pale;
+      pointer-events: none;
+
+      [data-theme='dark'] & {
+        color: $dark;
+        background-color: $grey;
+        border-color: $grey_pale;
+      }
+    }
+    &.active::before {
+      content: '';
+      position: absolute;
+
+      [data-theme='dark'] & {
+        @include border-gradient(
+          $radius,
+          toRem(1),
+          150deg,
+          rgba(255, 255, 255, 0.38),
+          transparent
+        );
+      }
+    }
+
+    &.logout {
+      color: $red;
+
+      [data-theme='dark'] & {
+        color: $mainColor;
+      }
+
+      @media (any-hover: hover) {
+        &:hover {
+          color: #ee2270;
+
+          [data-theme='dark'] & {
+            color: $dark;
+          }
+        }
+      }
+    }
+  }
+
+  &_footer {
+    padding: toRem(24);
+    border-top: toRem(1) solid $grey_pale;
+
+    & > a {
+      min-width: auto;
+      width: 100%;
+    }
+
+    [data-theme='dark'] & {
+      background-color: rgb($grey_misty, 0.24);
+    }
+  }
 }

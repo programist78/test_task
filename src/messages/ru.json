@@ -570,13 +570,15 @@
     "Sidebar": {
       "level": "Рівень",
       "confident_lvl": "Рівень впевненості:",
-      "profile": "Профіль",
+      "dashboard": "Профіль",
       "messages": "Повідомлення",
-      "bought_roducts": "Придбані продукти",
+      "sections": "Розділи",
+      "seller": "Продавець",
+      "buyers": "Покупці",
+      "financial": "Фінанси",
       "achievement": "Досягнення",
-      "payment": "Платіж",
-      "notifications": "Сповіщення",
       "security": "Безпека",
+      "report": "Звіт",
       "logout": "Вийти",
       "Seller": {
         "financial_balance": "Фінансовий баланс",
@@ -584,7 +586,7 @@
         "top_sellers": "Топ-продавці",
         "new_offer": "Створити товар"
       }
-    },    
+    },
     "Profile": {
       "change_background": "Змінити тло",
       "level": "Рівень",
@@ -782,6 +784,40 @@
         "to_product": "Запущено",
         "buyer": "Покупець"
       }
+    },
+    "Report": {
+      "title": "Звіт",
+      "search_label": "Пошук",
+      "search_placeholder": "Код звіту про пошук",
+      "report_date_label": "Дата складання звіту",
+      "report_date_from": "Від",
+      "report_date_to": "До",
+      "Table": {
+        "report_code": "Код звіту",
+        "reporter": "Звітуючий",
+        "report_text": "Текст",
+        "report_date": "Дата звіту",
+        "status": "Статус",
+        "offers": "Пропозиції",
+        "no_results": "Немає результатів"
+      }
+    },
+    "CurrentReport": {
+      "title": "Деталі звіту",
+      "reporter": "Репортер",
+      "ban_reporter": "Заблокувати репортера",
+      "suspect": "Підозрюваний",
+      "ban_suspect": "Заблокувати підозрюваного",
+      "report_date_and_time": "Дата та час звіту",
+      "section": "Секція",
+      "last_update": "Останнє оновлення",
+      "description": "Опис",
+      "attachment": "Додатки",
+      "answered": "Відповіли",
+      "update_status": "Оновити"
+    },
+    "Chat": {
+      "close_report": "Закрити звіт"
     }
   },
   "SellersPage": {

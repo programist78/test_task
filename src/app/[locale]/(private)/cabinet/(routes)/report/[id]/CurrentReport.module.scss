@@ -1,0 +1,10 @@
+@import 'constants/constans.scss';
+
+.formWrapper {
+  padding-top: toRem(24);
+  border-top: toRem(1) solid $grey_pale;
+}
+
+.body {
+  padding-bottom: toRem(24);
+}

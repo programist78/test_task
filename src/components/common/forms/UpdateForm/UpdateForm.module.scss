@@ -1,0 +1,25 @@
+@import 'constants/constans.scss';
+
+.form {
+  @include flexRow(flex-start, right);
+  gap: toRem(24);
+
+  &_fields {
+    @include flexRow(center);
+    gap: toRem(24);
+    max-width: toRem(392);
+
+    input::placeholder {
+      color: #110f10;
+      font-weight: 600;
+      [data-theme='dark'] & {
+        color: #d8deeb;
+      }
+    }
+  }
+
+  &_submit {
+    padding: 0 toRem(24);
+    min-width: toRem(141);
+  }
+}

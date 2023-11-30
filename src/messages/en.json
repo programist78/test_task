@@ -584,13 +584,15 @@
     "Sidebar": {
       "level": "Lv",
       "confident_lvl": "Confident Lv:",
-      "profile": "Profile",
+      "dashboard": "Dashboard",
       "messages": "Messages",
-      "bought_roducts": "Bought Products",
+      "sections": "Sections",
+      "seller": "Seller",
+      "buyers": "Buyers",
+      "financial": "Financial",
       "achievement": "Achievement",
-      "payment": "Payment",
-      "notifications": "Notifications",
       "security": "Security",
+      "report": "Report",
       "logout": "Logout",
       "Seller": {
         "financial_balance": "Financial & Balance",
@@ -923,6 +925,40 @@
         "cover_subtitle": "Max size: 2 mg, only PNG or JPEG"
       },
       "create": "Create offer"
+    },
+    "Report": {
+      "title": "Report",
+      "search_label": "Search",
+      "search_placeholder": "Search report code",
+      "report_date_label": "Report date",
+      "report_date_from": "From",
+      "report_date_to": "To",
+      "Table": {
+        "report_code": "Code",
+        "reporter": "Reporter",
+        "report_text": "Text",
+        "report_date": "Report Date",
+        "status": "Status",
+        "offers": "Offers",
+        "no_results": "No results"
+      }
+    },
+    "CurrentReport": {
+      "title": "Report Details",
+      "reporter": "Reporter",
+      "ban_reporter": "Ban reporter",
+      "suspect": "Suspect",
+      "ban_suspect": "Ban suspect",
+      "report_date_and_time": "Report Date & Time",
+      "section": "Section",
+      "last_update": "Last update",
+      "description": "Description",
+      "attachment": "Attachment",
+      "answered": "Answered",
+      "update_status": "Update Status"
+    },
+    "Chat": {
+      "close_report": "Close report"
     }
   },
   "SellersPage": {

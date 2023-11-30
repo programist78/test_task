@@ -1,0 +1,39 @@
+@import 'constants/constans.scss';
+
+.info {
+  &_row {
+    @include flexRow(center, flex-start);
+    margin-top: toRem(24);
+
+    &:first-child {
+      margin-top: toRem(0);
+    }
+
+    & > div {
+      margin-left: toRem(24);
+      min-width: toRem(296);
+      &:first-child {
+        margin-left: toRem(0);
+      }
+    }
+  }
+
+  &_attachment {
+    @include flexRow(center, flex-start);
+    margin-top: toRem(24);
+
+    button {
+      margin-top: toRem(8);
+      height: toRem(40);
+      color: $accent;
+
+      & > span {
+        @include text-gradient(#0c44ac, #548bf3);
+
+        [data-theme='dark'] & {
+          @include text-gradient(#d8deeb, #d8deeb);
+        }
+      }
+    }
+  }
+}

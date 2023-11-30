@@ -1,6 +1,23 @@
 @import 'constants/constans.scss';
 
 .chat {
+  position: relative;
+
+  &::before {
+    content: '';
+    position: absolute;
+
+    [data-theme='dark'] & {
+      @include border-gradient(
+        toRem(24),
+        toRem(1),
+        110deg,
+        rgba(255, 255, 255, 0.38),
+        #302b3f
+      );
+    }
+  }
+
   .seller {
     @include flexRow(center, space-between);
     column-gap: toRem(24);
@@ -9,6 +26,7 @@
 
     [data-theme='dark'] & {
       background-color: $blue_pale;
+      border: none;
     }
 
     &_block {
@@ -23,10 +41,17 @@
     }
 
     &_status {
+      margin-top: toRem(4);
       font-size: toRem(14);
       line-height: 142.857143%; /* 20/14 */
-      color: $green;
-      margin-top: toRem(4);
+
+      &_online {
+        color: $green;
+      }
+
+      &_offline {
+        color: rgba(216, 222, 235, 0.64);
+      }
     }
 
     &_report {
@@ -53,6 +78,8 @@
 
   .chat_wrapper {
     margin: 0;
+    margin-bottom: toRem(24);
+
     &::-webkit-scrollbar {
       width: toRem(3);
       height: toRem(3);
@@ -70,6 +97,9 @@
 
   .chat_body {
     padding: toRem(24);
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
   }
 
   .product {
@@ -114,6 +144,7 @@
 
     [data-theme='dark'] & {
       background-color: $blue_pale;
+      border: none;
     }
   }
 
@@ -139,21 +170,25 @@
     flex: 1 1 auto;
 
     & input {
-      border: none;
+      border: toRem(1) solid $grey_pale;
       background-color: $white;
 
       [data-theme='dark'] & {
+        border: none;
         background-color: $grey_misty_36;
       }
     }
   }
 
   .chat_send {
+    @include background-accent();
     min-width: toRem(117);
     font-size: toRem(14);
     line-height: 142.857143%; /* 20/14 */
+    color: #fff;
 
     [data-theme='dark'] & {
+      background: transparent;
       border: none;
       background-color: rgb($grey_misty, 0.24);
     }

@@ -1,0 +1,25 @@
+@import 'constants/constans.scss';
+
+.card {
+  @include flexColumn(flex-start, center);
+
+  &_header {
+    width: 100%;
+    font-size: toRem(14);
+    color: #7a7878;
+
+    [data-theme='dark'] & {
+      color: $dark;
+      opacity: 0.72;
+    }
+  }
+
+  &_body {
+    margin-top: toRem(4);
+    color: #110f10;
+
+    [data-theme='dark'] & {
+      color: #d8deeb;
+    }
+  }
+}

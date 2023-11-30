@@ -1,0 +1,12 @@
+@import 'constants/constans.scss';
+
+.reports {
+  margin-top: toRem(24);
+
+  &_noResults {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(316);
+  }
+}

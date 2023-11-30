@@ -5,7 +5,6 @@ import { IUser } from 'types/userTypes';
 
 import { Container } from 'ui/components/Container';
 import { Logo } from 'components/common/logo';
-import { Lang } from 'components/lang';
 
 import { HeaderNav } from './HeaderNav';
 import { HeaderUnauthorizedAvatar } from './HeaderAuthAvatars/HeaderUnauthorizedAvatar';
@@ -13,6 +12,7 @@ import { HeaderAuthorizedAvatar } from './HeaderAuthAvatars/HeaderAuthorizedAvat
 
 import s from './Header.module.scss';
 import { SeacrhIcon } from 'components/icons/social/SeacrhIcon';
+import { Lang } from 'components/Lang';
 
 interface HeaderProps {
   user?: IUser;
@@ -27,7 +27,6 @@ export const Header: FC<HeaderProps> = ({
   isPaddingTop = true,
   isFixedOnScroll = true,
 }) => {
-
   const [headerActive, setHeaderActive] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
 
@@ -70,8 +69,9 @@ export const Header: FC<HeaderProps> = ({
   return (
     <header
       ref={headerRef}
-      className={`${s.header} ${headerActive ? s.header_active : ''} ${className ? className : ''
-        }`.trim()}
+      className={`${s.header} ${headerActive ? s.header_active : ''} ${
+        className ? className : ''
+      }`.trim()}
       data-fixed={headerActive} //add padding during modal active
     >
       <Container className={s.header_container}>

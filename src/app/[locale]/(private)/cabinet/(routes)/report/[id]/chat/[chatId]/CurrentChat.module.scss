@@ -1,0 +1,17 @@
+@import 'constants/constans.scss';
+
+.chat {
+  &_button {
+    position: absolute;
+    right: 0;
+    background-color: $blue_pale;
+
+    & > span {
+      @include text-gradient(#0c44ac, #548bf3);
+
+      [data-theme='dark'] & {
+        @include text-gradient(#d8deeb, #d8deeb);
+      }
+    }
+  }
+}

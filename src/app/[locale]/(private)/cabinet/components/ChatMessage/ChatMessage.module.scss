@@ -1,0 +1,43 @@
+@import 'constants/constans.scss';
+
+.response {
+  flex: 1 1 auto;
+  align-self: flex-start;
+  border: toRem(1) solid rgba(57, 60, 77, 0.24);
+  border-radius: 0 toRem(24) toRem(24) toRem(24);
+  background-color: $grey;
+  color: $dark;
+
+  [data-theme='dark'] & {
+    background-color: $blue_pale;
+  }
+}
+
+.reply {
+  @include background-accent();
+  align-self: flex-end;
+  border-radius: toRem(24) 0 toRem(24) toRem(24);
+  color: #fff;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.message {
+  margin-top: toRem(24);
+  padding: toRem(16);
+  max-width: toRem(312);
+  word-wrap: break-word;
+
+  &_time {
+    margin-top: toRem(8);
+    height: toRem(20);
+    font-size: toRem(14);
+    opacity: 0.72;
+  }
+}

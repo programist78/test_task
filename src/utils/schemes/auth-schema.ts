@@ -79,6 +79,12 @@ export const messageShema = yup.object({
   message: yup.string().required(' '),
 });
 
+export const reportMessageShema = yup.object({
+  createdAt: yup.string().required(' '),
+  content: yup.string().required(' '),
+  isReply: yup.boolean().required(),
+});
+
 export const reportSellerShema = yup.object({
   report_message: yup.string().required(' '),
 });

@@ -18,6 +18,8 @@ import { PlusIcon } from 'components/icons/PlusIcon';
 import s from './ProfileSidebar.module.scss';
 import { ISidebarConfig } from '../../layout';
 
+import { useDarkTheme } from 'utils/hooks/useDarkTheme';
+
 interface IItem {
   icon: ReactNode;
   title: string;
@@ -33,85 +35,101 @@ export const ProfileSidebar: FC<ProfileSidebarProps> = ({ config, user }) => {
   const t = useTranslations('ProfilePage.Sidebar');
   const pathname = usePathname();
   const { logout } = useAuth();
+  const { isDark } = useDarkTheme();
   const isSeller = user?.role === EnumRoles.SELLER;
 
   return (
-    <aside className={s.sidebar}>
-      <div className={s.sidebar_top}>
-        <div className={s.user}>
-          <div className={s.user_image}>
-            {user?.avatarURL ? (
-              <Image
-                src={user?.avatarURL}
-                width={76}
-                height={76}
-                alt={user?.userName}
-                loader={({ src, width: w, quality }) => {
-                  const q = quality || 75;
-                  return `${src}?w=${w}&q=${q}`;
-                }}
-              />
-            ) : (
-              <span>
-                {user?.userName?.substring(0, 1) || user?.email.substring(0, 1)}
+    <div className={s.sidebar_wrapper}>
+      <aside className={s.sidebar}>
+        <div className={s.sidebar_top}>
+          <div className={s.user}>
+            <div className={s.user_image}>
+              <div className={s.user_image_border}>
+                <div className={s.user_image_backdrop}>
+                  {user?.avatarURL ? (
+                    <Image
+                      src={user?.avatarURL}
+                      width={76}
+                      height={76}
+                      alt={user?.userName}
+                      loader={({ src, width: w, quality }) => {
+                        const q = quality || 75;
+                        return `${src}?w=${w}&q=${q}`;
+                      }}
+                    />
+                  ) : (
+                    <span>
+                      {user?.userName?.substring(0, 1) ||
+                        user?.email.substring(0, 1)}
+                    </span>
+                  )}
+                </div>
+              </div>
+              <div className={s.user_level}>
+                <span className="text_accent">
+                  {t('level')}.{user?.level}
+                </span>
+              </div>
+            </div>
+            <div className={s.user_info}>
+              <span className={s.user_name}>
+                {user?.userName ? user?.userName : 'Noname'}
               </span>
-            )}
-            <div className={s.user_level}>
-              <span className="text_accent">
-                {t('level')}.{user?.level}
-              </span>
+              {isSeller ? (
+                <div className={s.user_confident}>
+                  <span className={s.user_confident_value}>
+                    {t('confident_lvl')} {user.confidentLvl}%
+                  </span>
+                  <span
+                    className={s.user_confident_line}
+                    style={{
+                      width: `${user.confidentLvl}%`,
+                    }}
+                  />
+                </div>
+              ) : (
+                <span className={s.user_email}>{user?.email}</span>
+              )}
             </div>
           </div>
-          <div className={s.user_info}>
-            <span className={s.user_name}>
-              {user?.userName ? user?.userName : 'Noname'}
-            </span>
-            {isSeller ? (
-              <div className={s.user_confident}>
-                <span className={s.user_confident_value}>
-                  {t('confident_lvl')} {user.confidentLvl}%
-                </span>
-                <span
-                  className={s.user_confident_line}
-                  style={{
-                    width: `${user.confidentLvl}%`,
-                  }}
-                />
-              </div>
-            ) : (
-              <span className={s.user_email}>{user?.email}</span>
-            )}
+        </div>
+        <div className={s.sidebar_content}>
+          <div className={s.sidebar_body}>
+            <ul className={s.sidebar_list}>
+              {config.items.map((item, index) => {
+                const regex = new RegExp(`^/(?:${locales.join('|')})/`);
+                const cleanedUrl = pathname.replace(regex, '/');
+                const isActive =
+                  item.href.length > 1
+                    ? cleanedUrl.startsWith(item.href)
+                    : false;
+
+                return (
+                  <li className={s.sidebar_item} key={index}>
+                    <Link
+                      className={`${s.sidebar_button} ${
+                        isActive
+                          ? s.active
+                          : item.title === 'logout'
+                            ? s.logout
+                            : ''
+                      }`.trim()}
+                      href={item.href}
+                    >
+                      {isDark && item.icon}
+                      {!isDark && (item.lightIcon ? item.lightIcon : item.icon)}
+                      <span>{t(item.title)}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
           </div>
         </div>
-      </div>
-      <div className={s.sidebar_content}>
-        <div className={s.sidebar_body}>
-          <ul className={s.sidebar_list}>
-            {config.items.map((item, index) => {
-              const regex = new RegExp(`^/(?:${locales.join('|')})/`);
-              const cleanedUrl = pathname.replace(regex, '/');
-              const isActive = cleanedUrl.startsWith(item.href);
-
-              return (
-                <li className={s.sidebar_item} key={index}>
-                  <Link
-                    className={`${s.sidebar_button} ${
-                      isActive ? s.active : ''
-                    }`.trim()}
-                    href={item.href}
-                  >
-                    {item.icon}
-                    <span>{t(item.title)}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-      {config.footerContent && (
-        <div className={s.sidebar_footer}>{config.footerContent}</div>
-      )}
-    </aside>
+        {config.footerContent && (
+          <div className={s.sidebar_footer}>{config.footerContent}</div>
+        )}
+      </aside>
+    </div>
   );
 };

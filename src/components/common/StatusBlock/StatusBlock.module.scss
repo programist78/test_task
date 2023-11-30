@@ -1,35 +1,54 @@
-@import "constants/constans.scss";
+@import 'constants/constans.scss';
 
 .status {
-    display: inline-block;
-    min-width: toRem(120);
-    height: toRem(40);
-    padding: toRem(8) toRem(24);
-    border-radius: toRem(50);
-    text-align: center;
-    text-transform: lowercase;
+  display: inline-block;
+  min-width: toRem(120);
+  height: toRem(40);
+  padding: toRem(8) toRem(24);
+  border-radius: toRem(50);
+  text-align: center;
+  text-transform: lowercase;
 
-    &::first-letter {
-        text-transform: uppercase;
-    }
+  &::first-letter {
+    text-transform: uppercase;
+  }
 
-    &_pending {
-        background-color: #ff6c001a;
-        color: #ff6c00;
-    }
+  &_pending {
+    background-color: #ff6c001a;
+    color: #ff6c00;
+  }
 
-    &_succeeded {
-        background-color: #00a1901a;
-        color: $green;
-    }
+  &_succeeded {
+    background-color: #00a1901a;
+    color: $green;
+  }
 
-    &_canceled {
-        background-color: #dd00551a;
-        color: $red;
-    }
+  &_canceled {
+    background-color: #dd00551a;
+    color: $red;
+  }
 
-    &_failed {
-        background-color: #dd00551a;
-        color: $red;
+  &_failed {
+    background-color: #dd00551a;
+    color: $red;
+  }
+
+  &_answered {
+    background-color: rgba(0, 161, 144, 0.1);
+    color: $green;
+  }
+
+  &_waiting {
+    background-color: rgba(255, 108, 0, 0.1);
+    color: #ff6c00;
+  }
+
+  &_closed {
+    background-color: rgba(248, 247, 247, 1);
+    color: #110f10;
+    [data-theme='dark'] & {
+      color: #d8deeb;
+      background-color: rgba(248, 247, 247, 0.08);
     }
+  }
 }
